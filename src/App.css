@@ -1,5 +1,34 @@
+@import url(//cdn.rawgit.com/hiun/NanumSquare/master/nanumsquare.css);
+
 .App {
   text-align: center;
+}
+
+body {
+  font-family: 'Nanum Square';
+}
+
+.black-nav {
+  background: black;
+  width: 100%;
+  display: flex;
+  color: white;
+  padding: 20px;
+  font-weight: 600;
+  font-size: 20px;
+}
+
+.list {
+  margin-top: 30px;
+  text-align: left;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.modal {
+  padding: 20px;
+  background: #eee;
+  margin-top: 20px;
 }
 
 .App-logo {
