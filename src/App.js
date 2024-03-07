@@ -9,7 +9,7 @@ function App() {
   let [date, setDate] = useState(['3월 4일', '3월 3일', '3월 2일']);
   let [ddabong, setDdabong] = useState([0, 0, 0]);
   let [modal, setModal] = useState(false);
-  let [index, setIndex] = useState(-1);
+  let [index, setIndex] = useState(0);
 
   function changeTitle() {
     // if (title[0] == '남자 코트 추천') setTitle(['여자 코트 추천', title[1], title[2]]);
@@ -49,7 +49,7 @@ function App() {
         title.map((str, idx)=>{
           return (
             <div className="list" key={idx}>
-              <h3 onClick={()=>{ setIndex(idx); setModal(!modal); }}>{ title[idx] } <span onClick={ ()=>{ addDdabong(idx) } }>👍</span> { ddabong[idx] }</h3>
+              <h3 onClick={()=>{ setIndex(idx); setModal(true); }}>{ title[idx] } <span onClick={ ()=>{ addDdabong(idx) } }>👍</span> { ddabong[idx] }</h3>
               <p> { date[idx] } 발행 </p>
               <hr/>
             </div>
@@ -82,4 +82,3 @@ function Modal(props) {
 }
 
 export default App;
-
