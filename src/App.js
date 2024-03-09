@@ -32,6 +32,8 @@ function App() {
     let todayStr = (dateObj.getMonth() + 1) + "월 " + dateObj.getDate() + "일";
     let newDateArray = [todayStr, ...date];
     setDate(newDateArray);
+
+    setInputText('');
   }
 
   function deletePost(idx) {
@@ -73,7 +75,7 @@ function App() {
       - array 자료에 뭔가 추가하고 싶을 때 쓰는 방법은 ... 찾아보기
       - 글마다 삭제 버튼 만들어서 누르면 삭제하기. */}
 
-      <input onChange={(e)=>{ setInputText(e.target.value); }}/>
+      <input onChange={(e)=>{ setInputText(e.target.value); }} value={ inputText }/>
       <button onClick={ addPost }>글 추가</button>
 
       {
