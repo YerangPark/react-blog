@@ -11,14 +11,6 @@ function App() {
   let [modal, setModal] = useState(false);
   let [index, setIndex] = useState(0);
   let [inputText, setInputText] = useState('');
-
-  function changeTitle() {
-    // if (title[0] == '남자 코트 추천') setTitle(['여자 코트 추천', title[1], title[2]]);
-    // else if (title[0] == '여자 코트 추천') setTitle(['남자 코트 추천', title[1], title[2]]);
-    let newArray = [...title];
-    newArray[0] = '남자 코트 추천';
-    setTitle(newArray);
-  }
   function addDdabong(idx) {
     let newArray = [...ddabong];
     newArray[idx]++;
@@ -26,15 +18,19 @@ function App() {
   }
 
   function addPost() {
-    let newTitleArray = [...title, inputText];
+    if (!inputText) {
+      alert("글 제목을 입력해주세요.");
+      return;
+    }
+    let newTitleArray = [inputText, ...title]; // or newTitleArray.unshift(inputText);
     setTitle(newTitleArray);
 
-    let newDdabongArray = [...ddabong, 0];
+    let newDdabongArray = [0, ...ddabong];
     setDdabong(newDdabongArray);
 
     let dateObj = new Date();
     let todayStr = (dateObj.getMonth() + 1) + "월 " + dateObj.getDate() + "일";
-    let newDateArray = [...date, todayStr];
+    let newDateArray = [todayStr, ...date];
     setDate(newDateArray);
   }
 
@@ -57,7 +53,6 @@ function App() {
       <div className="black-nav">
         개발 Blog
       </div>
-      <button onClick={ changeTitle }>제목 변경</button>
       {
         title.map((str, idx)=>{
           return (
